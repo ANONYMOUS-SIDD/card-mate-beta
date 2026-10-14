@@ -24,6 +24,7 @@
     --border: #E2E8F0;
     --brand-gradient: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #3B82F6 100%);
     --indigo-gradient: linear-gradient(135deg, #312E81 0%, #4F46E5 100%);
+    --success: #10B981;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -191,7 +192,7 @@
     display: grid;
     grid-template-columns: 40px 1fr;
     gap: 16px;
-    padding: 20px 0;
+    padding: 22px 0;
     border-top: 1px solid #F1F5F9;
   }
 
@@ -216,7 +217,7 @@
     font-size: 15.5px;
     font-weight: 800;
     color: var(--text);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     letter-spacing: -0.1px;
   }
 
@@ -225,7 +226,7 @@
     color: var(--text-muted);
     font-weight: 600;
     margin-bottom: 14px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
   /* ============ BUTTONS ============ */
@@ -260,6 +261,21 @@
 
   .btn-primary { background: var(--brand-gradient); }
   .btn-indigo { background: var(--indigo-gradient); }
+
+  /* ============ TIP BOX ============ */
+  .tip {
+    margin-top: 14px;
+    background: #FFFBEB;
+    border-left: 3px solid #F59E0B;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #78350F;
+    line-height: 1.55;
+  }
+
+  .tip strong { color: #92400E; font-weight: 800; }
 
   /* ============ NOTE BOX ============ */
   .note {
@@ -312,7 +328,7 @@
       </span>
       <span class="badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        2-minute setup
+        3-step setup
       </span>
     </div>
   </div>
@@ -321,21 +337,21 @@
 <main class="main">
   <div class="card">
 
-    <h2>Two Steps to Start Testing</h2>
-    <p class="lead">Follow the steps in order. Both are required to install the app from Google Play.</p>
+    <h2>Three Steps to Start Testing</h2>
+    <p class="lead">Follow the steps in order. Complete each one before moving to the next.</p>
 
     <!-- Step 1 -->
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h3>Join the testing group</h3>
-        <p>Tap the button below to join our Google testing group. It takes one tap — no approval needed.</p>
+        <h3>Open the Google Group</h3>
+        <p>Tap the button below. If you're not signed in to Google, you'll be asked to log in with your Google account. Use the same account you use on Play Store.</p>
         <a class="btn btn-indigo"
            href="https://groups.google.com/g/cardmate-testers"
            target="_blank"
            rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Join Testing Group
+          Open Google Group
         </a>
       </div>
     </div>
@@ -344,8 +360,20 @@
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
+        <h3>Become a Tester</h3>
+        <p>Once the group page loads, tap the <strong>"Join group"</strong> button at the top of the page. Wait for the confirmation that you've joined.</p>
+        <div class="tip">
+          <strong>After signing in, Google may redirect you to a different page.</strong> If you don't land directly on the group page, tap the Step 1 button again — you'll now be signed in and the "Join group" button will appear.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
         <h3>Install Card Mate</h3>
-        <p>Once you've joined the group, tap below. Play Store will open — tap "Become a tester", then "Download it on Google Play".</p>
+        <p>After joining the group, tap the button below. Play Store will open with a <strong>"Become a tester"</strong> button — tap it, then tap <strong>"Download it on Google Play"</strong>.</p>
         <a class="btn btn-primary"
            href="https://play.google.com/apps/testing/com.siddhant.cardmate"
            target="_blank"
