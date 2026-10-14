@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Mate — Join the Beta</title>
+<meta name="description" content="Join the Card Mate closed beta. Score tracker for Marriage and Call Break.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-dark: #1E3A8A;
+    --primary-medium: #2563EB;
+    --primary-light: #3B82F6;
+    --indigo-deep: #312E81;
+    --indigo-mid: #4F46E5;
+    --text: #1A1D2B;
+    --text-body: #334155;
+    --text-muted: #64748B;
+    --surface: #FFFFFF;
+    --surface-alt: #F8FAFC;
+    --surface-tint: #F0F5FF;
+    --border: #E2E8F0;
+    --success: #10B981;
+    --brand-gradient: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #3B82F6 100%);
+    --indigo-gradient: linear-gradient(135deg, #312E81 0%, #4F46E5 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 500;
+    background: #F7F9FC;
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.1px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    background: var(--brand-gradient);
+    color: white;
+    padding: 64px 24px 128px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero::before,
+  .hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+  }
+
+  .hero::before {
+    width: 520px;
+    height: 520px;
+    top: -260px;
+    right: -180px;
+  }
+
+  .hero::after {
+    width: 320px;
+    height: 320px;
+    top: -160px;
+    right: -80px;
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .app-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+    font-weight: 900;
+    font-size: 44px;
+    margin: 0 auto 28px;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero .subtitle {
+    font-size: clamp(15px, 1.9vw, 17px);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 480px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+  }
+
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .badge svg { width: 13px; height: 13px; opacity: 0.95; }
+
+  /* ============ MAIN ============ */
+  .main {
+    flex: 1;
+    max-width: 640px;
+    margin: -80px auto 0;
+    padding: 0 20px 60px;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: 0 32px 64px -20px rgba(30, 58, 138, 0.22), 0 4px 12px rgba(30, 58, 138, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  @media (max-width: 520px) {
+    .card { padding: 28px 20px; border-radius: 20px; }
+    .hero { padding: 48px 20px 112px; }
+    .main { padding: 0 14px 48px; margin-top: -72px; }
+    .app-icon { width: 72px; height: 72px; font-size: 36px; border-radius: 18px; }
+  }
+
+  .card h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .card .lead {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 1.55;
+  }
+
+  /* ============ STEPS ============ */
+  .step {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid #F1F5F9;
+  }
+
+  .step:first-of-type { border-top: none; padding-top: 0; }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--brand-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 6px 14px -2px rgba(30, 58, 138, 0.35);
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.1px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  /* ============ BUTTONS ============ */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    font-size: 14.5px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px -4px rgba(30, 58, 138, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.18s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -6px rgba(30, 58, 138, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .btn:active { transform: translateY(0); }
+
+  .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+  .btn-primary { background: var(--brand-gradient); }
+  .btn-indigo { background: var(--indigo-gradient); }
+
+  /* ============ NOTE BOX ============ */
+  .note {
+    margin-top: 32px;
+    background: linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%);
+    border-left: 4px solid var(--primary-medium);
+    border-radius: 12px;
+    padding: 18px 20px;
+    color: var(--primary-dark);
+    font-size: 13.5px;
+    line-height: 1.65;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+
+  .note strong { font-weight: 800; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    color: #94A3B8;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  footer a {
+    color: var(--primary-medium);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  footer a:hover { color: var(--primary-dark); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="app-icon">♠</div>
+    <h1>Join the Card Mate Beta</h1>
+    <p class="subtitle">
+      Be among the first to test Card Mate before its public release. Your two-minute setup helps unlock the full launch.
+    </p>
+    <div class="badge-row">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Free to test
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        2-minute setup
+      </span>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="card">
+
+    <h2>Two Steps to Start Testing</h2>
+    <p class="lead">Follow the steps in order. Both are required to install the app from Google Play.</p>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Join the testing group</h3>
+        <p>Tap the button below to join our Google testing group. It takes one tap — no approval needed.</p>
+        <a class="btn btn-indigo"
+           href="https://groups.google.com/g/cardmate-testers"
+           target="_blank"
+           rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Join Testing Group
+        </a>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Install Card Mate</h3>
+        <p>Once you've joined the group, tap below. Play Store will open — tap "Become a tester", then "Download it on Google Play".</p>
+        <a class="btn btn-primary"
+           href="https://play.google.com/apps/testing/com.siddhant.cardmate"
+           target="_blank"
+           rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+          Install from Play Store
+        </a>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Please use the app daily for 14 days.</strong>
+      Google requires 12+ testers to stay active for two weeks before the public release unlocks. Open the app at least once each day and try adding players, running Marriage and Call Break games, and browsing your history.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Questions or feedback? Email
+  <a href="mailto:siddhanttimalsina2007@gmail.com">siddhanttimalsina2007@gmail.com</a>
+</footer>
+
+</body>
+</html>
