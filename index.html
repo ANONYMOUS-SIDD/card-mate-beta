@@ -24,7 +24,6 @@
     --border: #E2E8F0;
     --brand-gradient: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #3B82F6 100%);
     --indigo-gradient: linear-gradient(135deg, #312E81 0%, #4F46E5 100%);
-    --success: #10B981;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -262,21 +261,6 @@
   .btn-primary { background: var(--brand-gradient); }
   .btn-indigo { background: var(--indigo-gradient); }
 
-  /* ============ TIP BOX ============ */
-  .tip {
-    margin-top: 14px;
-    background: #FFFBEB;
-    border-left: 3px solid #F59E0B;
-    border-radius: 10px;
-    padding: 12px 14px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #78350F;
-    line-height: 1.55;
-  }
-
-  .tip strong { color: #92400E; font-weight: 800; }
-
   /* ============ NOTE BOX ============ */
   .note {
     margin-top: 32px;
@@ -344,13 +328,13 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h3>Open the Google Group</h3>
-        <p>Tap the button below. If you're not signed in to Google, you'll be asked to log in with your Google account. Use the same account you use on Play Store.</p>
+        <h3>Sign in with Google</h3>
+        <p>Tap the button below to open the Google Group. If you're not already signed in, Google will ask you to log in. Use the same Google account you use on the Play Store.</p>
         <a class="btn btn-indigo"
            href="https://groups.google.com/g/cardmate-testers"
            target="_blank"
            rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
           Open Google Group
         </a>
       </div>
@@ -360,11 +344,15 @@
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h3>Become a Tester</h3>
-        <p>Once the group page loads, tap the <strong>"Join group"</strong> button at the top of the page. Wait for the confirmation that you've joined.</p>
-        <div class="tip">
-          <strong>After signing in, Google may redirect you to a different page.</strong> If you don't land directly on the group page, tap the Step 1 button again — you'll now be signed in and the "Join group" button will appear.
-        </div>
+        <h3>Join the Group</h3>
+        <p>Once you're signed in, tap the button again. This time the group page will load with a <strong>"Join group"</strong> button at the top — tap it to become a member.</p>
+        <a class="btn btn-indigo"
+           href="https://groups.google.com/g/cardmate-testers"
+           target="_blank"
+           rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Join Group
+        </a>
       </div>
     </div>
 
