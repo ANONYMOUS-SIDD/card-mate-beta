@@ -44,7 +44,6 @@
     flex-direction: column;
   }
 
-  /* ============ HERO ============ */
   .hero {
     background: var(--brand-gradient);
     color: white;
@@ -142,7 +141,6 @@
 
   .badge svg { width: 13px; height: 13px; opacity: 0.95; }
 
-  /* ============ MAIN ============ */
   .main {
     flex: 1;
     max-width: 640px;
@@ -186,7 +184,6 @@
     line-height: 1.55;
   }
 
-  /* ============ STEPS ============ */
   .step {
     display: grid;
     grid-template-columns: 40px 1fr;
@@ -228,7 +225,6 @@
     line-height: 1.6;
   }
 
-  /* ============ BUTTONS ============ */
   .btn {
     display: flex;
     align-items: center;
@@ -261,7 +257,29 @@
   .btn-primary { background: var(--brand-gradient); }
   .btn-indigo { background: var(--indigo-gradient); }
 
-  /* ============ NOTE BOX ============ */
+  /* Small hint text under a button */
+  .hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 11px 14px;
+    background: #F0F9FF;
+    border-left: 3px solid #0EA5E9;
+    border-radius: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #075985;
+    line-height: 1.55;
+  }
+
+  .hint svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
   .note {
     margin-top: 32px;
     background: linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%);
@@ -277,7 +295,6 @@
 
   .note strong { font-weight: 800; }
 
-  /* ============ FOOTER ============ */
   footer {
     text-align: center;
     padding: 24px 20px 40px;
@@ -330,13 +347,14 @@
       <div class="step-content">
         <h3>Sign in with Google</h3>
         <p>Tap the button below to open the Google Group. If you're not already signed in, Google will ask you to log in. Use the same Google account you use on the Play Store.</p>
-        <a class="btn btn-indigo"
-           href="https://groups.google.com/g/cardmate-testers"
-           target="_blank"
-           rel="noopener">
+        <button type="button" class="btn btn-indigo" onclick="openGroupTab()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
           Open Google Group
-        </a>
+        </button>
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>The group opens in a new tab. After you finish signing in there, return to this tab to continue with Step 2.</span>
+        </div>
       </div>
     </div>
 
@@ -346,13 +364,14 @@
       <div class="step-content">
         <h3>Join the Group</h3>
         <p>Once you're signed in, tap the button again. This time the group page will load with a <strong>"Join group"</strong> button at the top — tap it to become a member.</p>
-        <a class="btn btn-indigo"
-           href="https://groups.google.com/g/cardmate-testers"
-           target="_blank"
-           rel="noopener">
+        <button type="button" class="btn btn-indigo" onclick="openGroupTab()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           Join Group
-        </a>
+        </button>
+        <div class="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Already joined? Close the Google Group tab and come back here to install the app.</span>
+        </div>
       </div>
     </div>
 
@@ -384,6 +403,22 @@
   Questions or feedback? Email
   <a href="mailto:siddhanttimalsina2007@gmail.com">siddhanttimalsina2007@gmail.com</a>
 </footer>
+
+<script>
+  /**
+   * Opens the Google Group in a new browser tab. Using window.open
+   * instead of target="_blank" makes the new-tab behavior reliable on
+   * mobile browsers (Chrome Android, Samsung Internet, in-app browsers)
+   * where target="_blank" is often ignored.
+   *
+   * Because the group opens in its own tab, the user's browser history
+   * stays clean: when they're done with Google, they just close that
+   * tab and return here — no back-stack to walk through.
+   */
+  function openGroupTab() {
+    window.open('https://groups.google.com/g/cardmate-testers', '_blank', 'noopener');
+  }
+</script>
 
 </body>
 </html>
